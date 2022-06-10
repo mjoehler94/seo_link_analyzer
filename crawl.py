@@ -9,6 +9,7 @@ def get_urls_from_string(page_content: str, base_url: str) -> list:
     links = [elem.get("href") for elem in tree.iter() if elem.tag == "a"]
     return links
 
+
 def normalize_url(url: str) -> str:
     parsed_url = urlparse(url)
     normalized = (parsed_url.netloc + parsed_url.path).lower().strip("/")

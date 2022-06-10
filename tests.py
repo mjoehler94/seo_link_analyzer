@@ -4,7 +4,6 @@ from report import remove_none_values, sort_pages
 from crawl import get_urls_from_string, normalize_url
 
 
-
 class Tests(unittest.TestCase):
     def test_remove_none_values(self):
         self.assertEqual({}, remove_none_values({"1": None}))
@@ -21,7 +20,6 @@ class Tests(unittest.TestCase):
             [("second", 47), ("third", 46), ("first", 45)],
             sort_pages({"first": 45, "third": 46, "second": 47}),
         )
-
 
     def test_get_urls_from_string(self):
         self.assertEqual(
@@ -46,7 +44,6 @@ class Tests(unittest.TestCase):
             "http://boot.dev/",
             "https://boot.dev#header",
             "https://boot.dev?via=lane",
-
         ]
         for l in links:
             print(l)
@@ -55,7 +52,6 @@ class Tests(unittest.TestCase):
             "blog.boot.dev/python",
             normalize_url("https://blog.boot.dev/python"),
         )
-        
 
 
 if __name__ == "__main__":
