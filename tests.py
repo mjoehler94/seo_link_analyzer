@@ -1,6 +1,7 @@
 import unittest
 
 from report import remove_none_values, sort_pages
+from crawl import get_url_from_string
 
 
 class Tests(unittest.TestCase):
@@ -19,6 +20,16 @@ class Tests(unittest.TestCase):
             sort_pages({"first": 45, "third": 46, "second": 47}),
             [("second", 47), ("third", 46), ("first", 45)],
         )
+
+    def test_get_url_from_string(self):
+        html_example = """
+            <html>
+                <body>
+                    <a href="https://blog.boot.dev"><span>Go to Boot.dev</span></a>
+                </body>
+            </html>
+        """
+        self.assertEqual()
 
 
 if __name__ == "__main__":
