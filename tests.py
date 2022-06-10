@@ -40,7 +40,21 @@ class Tests(unittest.TestCase):
         )
 
     def test_normalize_url(self):
-        self.assertEqual(1,1)
+        links = [
+            "https://Boot.dev",
+            "http:/boot.dev",
+            "http://boot.dev/",
+            "https://boot.dev#header",
+            "https://boot.dev?via=lane",
+
+        ]
+        for l in links:
+            print(l)
+            self.assertEqual("boot.dev", normalize_url(l))
+        self.assertEqual(
+            "blog.boot.dev/python",
+            normalize_url("https://blog.boot.dev/python"),
+        )
         
 
 

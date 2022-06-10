@@ -1,4 +1,5 @@
 from lxml import html
+from urllib.parse import urlparse
 
 
 def get_urls_from_string(page_content: str, base_url: str) -> list:
@@ -9,4 +10,6 @@ def get_urls_from_string(page_content: str, base_url: str) -> list:
     return links
 
 def normalize_url(url: str) -> str:
-    return
+    parsed_url = urlparse(url)
+    normalized = (parsed_url.netloc + parsed_url.path).lower().strip("/")
+    return normalized
